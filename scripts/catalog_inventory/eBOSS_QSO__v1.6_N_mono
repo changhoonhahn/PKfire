@@ -1,0 +1,47 @@
+name=eBOSS_QSO
+version=v1.6_N_mono
+# directory where everything is 
+dir_data=/mount/riachuelo1/hahn/data/BigMD/
+dir_fft=/mount/riachuelo1/hahn/FFT/BigMD/
+dir_power=/mount/riachuelo1/hahn/power/BigMD/
+# file tag 
+file=eboss_v1.6-QSO-N
+
+# unprocessed data file
+unprocessed_data_file=eboss_v1.6-QSO-N-eboss_v1.6.dat.fits
+# columns of unprocessed data file
+unprocessed_data_column=ra,dec,z,nz,weight_fkp,weight_systot,weight_noz,weight_cp
+# unprocessed random file
+unprocessed_ran_file=eboss_v1.6-QSO-N-eboss_v1.6.ran.fits
+# columns of unprocessed random file
+unprocessed_ran_column=ra,dec,z,nz,weight_fkp
+
+# data processing info 
+z_min=0.8
+z_max=2.2
+
+# fft code 
+fft_code=FFT_fkp.f
+# specify what the fft_flags correspond to. If you don't want the flag to be 
+# specified in the fft file name just put 00
+fftflags=00,cosmology,Lbox,Ngrid,P0
+# fft code flag : specifies which catalog
+fft_flag0=11
+# fft code flag : specifies cosmology (0 : Omega_M = 0.31, 1 : survey specific). 0 is the *default*
+fft_flag1=0
+# fft code flag : specifies Rbox
+fft_flag2=7200
+# fft code flag : FFT grid size
+fft_flag3=960
+# fft code flag : P0 value  
+fft_flag4=6000
+
+# power code
+power_code=power-Igal-Irand.f
+# specify what the power_flags correspond to. If you don't want the flag to be 
+# specified in the fft file name just put 00
+powerflags=Lbox,Nbin
+# power code flag : Rbox (This has to be the same as Rbox above or the world will explode) 
+power_flag0=7200
+# power code flag : Nbin 
+power_flag1=480
